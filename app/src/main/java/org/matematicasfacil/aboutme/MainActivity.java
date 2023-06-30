@@ -19,12 +19,9 @@ public class MainActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        binding.floatingCompartir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ContacActivity.class);
-                startActivity(intent);
-            }
+        binding.floatingCompartir.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ContacActivity.class);
+            startActivity(intent);
         });
     }
 }

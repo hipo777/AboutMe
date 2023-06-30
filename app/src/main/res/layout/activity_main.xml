@@ -24,7 +24,7 @@
         android:gravity="center"
         android:text="Soy Hipólito Huaylla.\n Ingeniero en Física cuántica"
         android:textColor="#ffffff"
-        android:textSize="30sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -36,13 +36,13 @@
         android:id="@+id/floatingCompartir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#448AFF"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.99"
         app:layout_constraintStart_toStartOf="@+id/imageViewPerfil"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.816"
-        app:srcCompat="@android:drawable/ic_menu_share" />
-
+        app:layout_constraintVertical_bias="0.875"
+        app:srcCompat="@drawable/baseline_share_24"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
