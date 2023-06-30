@@ -31,30 +31,34 @@ public class ContacActivity extends AppCompatActivity {
         binding.btnWhatsapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phoneNumber = "+56993858464"; // Número de teléfono al que deseas llamar por WhatsApp
 
-                // Comprueba si WhatsApp está instalado en el dispositivo
-                if (isWhatsAppInstalled()) {
-                    // Abre WhatsApp con el número de teléfono proporcionado
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse("https://wa.me/$phoneNumber"));
-                    startActivity(intent);
-                } else {
-                    // WhatsApp no está instalado, puedes mostrar un mensaje de error o redirigir a la Play Store
-                    Toast.makeText(getBaseContext(), "HOla", Toast.LENGTH_LONG).show();
+                Intent sendIntent = new Intent(Intent.ACTION_DIAL);
+                sendIntent.setData(Uri.parse("tel:123456789"));
+                startActivity(sendIntent);
+            }
+        });
+        binding.btnContacto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-                }
+                String message = binding.editTextMensaje.getText().toString();
+
+                // Crear una intención de enviar un correo electrónico
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.setType("text/plain");
+
+                // Establecer la dirección de correo electrónico y el asunto
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, "email@address.com");
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Asunto del mensaje");
+
+                // Establecer el cuerpo del mensaje
+                emailIntent.putExtra(Intent.EXTRA_TEXT, message);
+
+                //Iniciar la actividad
+                startActivity(Intent.createChooser(emailIntent, "Enviar correo electrónico a través de: "));
             }
         });
 
     }
-    private boolean isWhatsAppInstalled() {
-        PackageManager packageManager = getPackageManager();
-        try {
-            packageManager.getPackageInfo("com.whatsapp", PackageManager.GET_ACTIVITIES);
-            return true;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
-        }
-    }
+
 }
